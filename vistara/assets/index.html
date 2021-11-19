@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upload Page</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <span class="big-circle"></span>
+      <img src="img/shape.png" class="square" alt="" />
+      <div class="form">
+        <div class="contact-info">
+          <h3 class="title">Share your creative content worldwide!</h3>
+          <p class="text">
+            
+          </p>
+
+          <div class="info">
+            <div class="information">
+              <p>Have problems uploading? <br>
+            No worries! We got you.<br><br></p>
+            </div>
+            <div class="information">
+              <img src="img/email.png" class="icon" alt="" />
+              <p><a style="text-decoration: none; color: #555;" href="mailto:admin01vistara@gmail.com">admin01vistara@gmail.com</a></p>
+            </div>
+            <div class="information">
+              <img src="img/phone.png" class="icon" alt="" />
+              <p>+91 9840626580</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <span class="circle one"></span>
+          <span class="circle two"></span>
+
+          <form action="index.html" autocomplete="off">
+            <h3 class="title">Vistara </h3>
+            <div class="input-container">
+              <input type="text" name="name" class="input" />
+              <label for="">Title</label>
+              <span>Title</span>
+            </div>
+            <div>
+            <input type="file" accept=".mp4, .mpg, .mpeg, .avi, .wmv, .mov, .rm, .ram, .swf, .flv, .ogg, .webm" id="real-file1" hidden="hidden" />
+            <button type="button" id="custom-button1">Browse video</button>
+            <span id="custom-text1"></span>
+            </div>
+            <div>
+            <input type="file" accept=".apng, .ico, .cur, .jpg, .jpeg, .jfif, .pjpeg, .pjp, .png, .svg" id="real-file2" hidden="hidden" />
+            <button type="button" id="custom-button2">Browse thumbnail</button>
+            <span id="custom-text2"></span>
+            </div>
+            <div class="input-container textarea">
+              <textarea name="message" class="input"></textarea>
+              <label for="">Description</label>
+              <span>Description</span>
+            </div>
+            <input type="submit" value="submit &#10004;" class="btn" />
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

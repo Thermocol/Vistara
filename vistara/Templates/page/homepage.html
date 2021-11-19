@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Video Streaming Page</title>
+  <link rel="stylesheet" href="{% static 'style1.css'%}" />
+  <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+  
+    <div class="container">
+      <span class="big-circle"></span>
+      <img class="square" src="{% static 'img/shape.png'%}" class="square" alt="" />
+      <div class="form">
+        <div class="contact-info">
+            <p class="text">
+              {% include 'page/navigation.html' %}
+              <h3>Username:  {{user}}</h3>
+              
+        </div>
+  
+        <div class="contact-form">
+          <span class="circle one"></span>
+          <span class="circle two"></span>
+  
+          <form action="index.html" autocomplete="off">
+            <h1 class="heading">Vistara</h1>
+            {% for object in object_list %}
+            <a href="{% url 'Video-detail' object.pk %}"> <img src="/media/{{object.thumbnail}}" width="256" height="144"> </a>
+            <a  href="{% url 'Video-detail' object.pk %}"> <h5>Title: {{ object.title }}</h5></a>
+            <p>Published by: {{ object.uploader }}</p>
+            <p>Published on: {{ object.Date_posted | date:"M d, Y" }}</p>
+            {% endfor %}
+            
+  
+            <div class="container1">
+
+            </div>
+            </form>
+            </body>
+</html>

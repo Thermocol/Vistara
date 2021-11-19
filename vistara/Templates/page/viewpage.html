@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load crispy_forms_tags %}
+  {% load static %}
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Video Streaming Page</title>
+  <link rel="stylesheet" href="{% static 'style1.css'%}" />
+  <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <span class="big-circle"></span>
+    <img class="square" src="{% static 'img/shape.png'%}" class="square" alt="" />
+    <div class="form">
+      <div class="contact-info">
+        <h3 class="title">{{object.title}}
+          <h6><br><br><br> Description:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ object.description }}</h6>
+            <h6><br>  Published on:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ object.Date_posted | date:"M d, Y" }}</h6>
+          <p class="text">
+            {% include 'page/navigation.html' %}
+            <h3>Username:  {{user}}</h3>
+            <h3>Comments Section:</h3>
+            {% for comment in comments %}
+        <div class="row mt-3">
+            <div class="col-md-8 col-sm-12 border-bottom">
+                <h5>{{ comment.user }} says:</h5>
+                <p>{{ comment.comment }}</p>
+            </div>
+        </div>
+        {% endfor %}
+            
+            
+      </div>
+
+      <div class="contact-form">
+        <span class="circle one"></span>
+        <span class="circle two"></span>
+
+        <form  autocomplete="off">
+          <h1 class="heading">Vistara</h1>
+              
+
+          <div class="container1">
+            <video width="520" height="300" controls crossorigin playsinline poster="/media/{{object.thumbnail}}">
+			
+              <source src="/media/{{ object.video_file }}" type="video/mp4" size="1080">
+                
+
+              
+            </video>
+            {% if object.uploader == user %}
+
+            <a href="{% url 'video-update' object.pk %} "><ion-icon name="pencil-outline" size="large"></ion-icon></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            
+            <a href="{% url 'video-delete' object.pk %} "><ion-icon name="trash-outline" size="large"></ion-icon></a>
+            {% endif %}
+            {% if user.is_authenticated %}
+                <form method="post">
+                    {% csrf_token %}
+                    <legend class="border-bottom mb-4">Leave a Comment!</legend>
+                    {{ form | crispy }}
+                    <button class="btn btn-outline-info btn-block">Post</button>
+                </form>
+                {% else %}
+                <a class="btn btn-outline-info btn-block" href="{% url 'account_login' %}">Sign In To Post a Comment!</a>
+                {% endif %}
+      </div>
+      
+          </div>
+          <div class="row mt-3">
+            <div class="col-md-8 col-sm-12">
+              
+                
+
+          
+      <div class="row mt-3">
+          
+          </div>
+      </div>
+      
+        
+
+          <div class="col-md-6 text-muted">
+            
+            
+            
+              </div>
+              
+      </div>
+      
+
+      <!-- Plyr resources and browser polyfills are specified in the pen settings -->
+
+
+
+
+      </form>
+    </div>
+    
+  </div>
+ 
+  
+  </div>
+
+</body>
+
+</html>
