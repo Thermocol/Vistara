@@ -17,7 +17,7 @@ Vistara is a web application built using Django that allows users to upload, sha
 ## Installation
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/yourusername/Vistara.git
+   git clone https://github.com/sairashwant/Vistara
    cd Vistara
 2. **Create Virtual Env if needed**:
    ```bash
