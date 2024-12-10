@@ -33,5 +33,4 @@ Vistara is a web application built using Django that allows users to upload, sha
    ```bash
     python manage.py runserver
 6. **Access the application: Open your web browser and go to http://127.0.0.1:8000/**
-# Vistara
-This is a video streaming app built using django. It uses css, js and html as front end.
+
